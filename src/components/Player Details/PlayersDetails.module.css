@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('../../assets/images/overlay\ pictures/stadium.jpg');
+}
+
+.player-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+}
+
+.player-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-details-image img{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.player-details-content {
+    background: white;
+    position: absolute;
+    top: 59%;
+    border-radius: 30px;
+    margin: 0px 20px 0px 20px;
+    height: 400px;
+}
+
+.player-details-content h1 {
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 35px;
+}
+
+.player-details-content h2 {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+
+.player-details-content h3 {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.player-details-content p {
+    text-align: center;
+    padding: 0px 50px 10px 50px;
+    font-size: 20px;
+}
