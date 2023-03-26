@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../project/assets/images/overlay\ pictures/stadium.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/images/overlay\ pictures/stadium.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;

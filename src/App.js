@@ -1,11 +1,14 @@
 import './App.css';
-import Header from './components/Header/Header';
+import ArticleDetails from './components/Article Details/ArticleDetails';
+import './components/Header/Header.js'
+import Header from './components/Header/Header.js';
 
 function App() {
   return (
-    <>
-        <Header />
-    </>
+      <>
+        {/* <Header /> */}
+        <ArticleDetails />
+      </>
   );
 }
 
