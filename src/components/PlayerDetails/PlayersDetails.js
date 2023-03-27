@@ -1,11 +1,14 @@
-export default function PlayerDetails() {
+import styles from './PlayersDetails.module.css';
+import enzo from '../../assets/player images/player-details-enzo.jpg';
+
+export default function PlayersDetails() {
     return (
         <body>
-            <div className="player-details-image">
-                <img src="./player images/player-details-enzo.jpg" alt="Enzo Fernandez" />
+            <div className={styles["player-details-image"]}>
+                <img src={enzo} alt="Enzo Fernandez" />
             </div>
 
-            <div className="player-details-content">
+            <div className={styles["player-details-content"]}>
                 <h1>Enzo Jeremías Fernández</h1>
                 <h2>Nationality: Argentinian</h2>
                 <h3>Born: 17 January 2001</h3>

@@ -1,31 +1,36 @@
+import styles from './Login.module.css'
+
+import { FaEnvelope } from 'react-icons/fa'
+import { FaLock } from 'react-icons/fa'
+
 export default function Login() {
     return (
         <body>
-            <div className="login-container">
+            <div className={styles["login-container"]}>
 
-                <form action="#" className="login-form">
+                <form action="#" className={styles["login-form"]}>
                     <h2>Login</h2>
-                    <div className="input-box">
-                        <span className="icon"><i className="fa-solid fa-envelope"></i></span>
+                    <div className={styles["input-box"]}>
+                        <span className={styles["icon"]}><FaEnvelope /></span>
                         <input type="email" required />
                         <label>Email</label>
                     </div>
 
-                    <div className="input-box">
-                        <span className="icon"><i className="fa-sharp fa-solid fa-lock"></i></span>
+                    <div className={styles["input-box"]}>
+                        <span className={styles["icon"]}><FaLock /></span>
                         <input type="password" required />
                         <label>Password</label>
                     </div>
 
-                    <div className="remember-me">
+                    {/* <div className={styles["remember-me"]}>
                         <label><input type="checkbox" />Remember me</label>
                         <a href="#">Forgot Password?</a>
-                    </div>
+                    </div> */}
 
-                    <button type="submit" className="login-btn">Login</button>
+                    <button type="submit" className={styles["login-btn"]}>Login</button>
 
-                    <div className="login-register">
-                        <h4>Don't have an account? <a href="register.html" className="register-link">Register</a></h4>
+                    <div className={styles["login-register"]}>
+                        <h4>Don't have an account? <a href="register.html" className={styles["register-link"]}>Register</a></h4>
                     </div>
                 </form>
             </div>

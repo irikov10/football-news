@@ -1,24 +1,14 @@
+import styles from './Home.module.css'
+import mbappe from '../../assets/images/overlay pictures/kylian-mbappe.png'
+
 export default function Home() {
 
     return (
         <body>
-            <header className="hero">
-                <nav className="navigation">
-                    <h1 className="logo">Football <span>News</span></h1>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Everyday News</a></li>
-                        <li><a href="#">Top Transfers</a></li>
-                        <li><a href="#">Leagues</a></li>
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                    <button className="sign-in-button">Sign in</button>
-                </nav>
-            </header>
 
-            <main id="main">
-                <div className="container">
-                    <div className="col">
+            <main id={styles["main"]}>
+                <div className={styles["container"]}>
+                    <div className={styles["col"]}>
                         <h2>Want to keep up with the</h2>
                         <h2>latest football news?</h2>
                         <h4>
@@ -26,7 +16,7 @@ export default function Home() {
                         </h4>
                     </div>
 
-                    <img src="./images/overlay pictures/kylian-mbappe.png" alt="Kylian Mbappe" />
+                    <img src={mbappe} alt="Kylian Mbappe" />
                 </div>
             </main>
         </body>
