@@ -45,7 +45,6 @@ export default function DailyNews() {
 
                             <div className={styles["interactions"]}>
                                 <p className={styles["like"]}><AiOutlineLike />Like</p>
-                                <p className={styles["dislike"]}><i className="fa-regular fa-thumbs-down"></i>Dislike</p>
                                 <p className={styles["comment"]}><i className="fa-regular fa-comment"></i>Comment</p>
                             </div>
                         </article>

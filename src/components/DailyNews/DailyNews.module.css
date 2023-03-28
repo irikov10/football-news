@@ -166,7 +166,7 @@ body {
 .interactions {
     display: flex;
     background-color: white;
-    justify-content: space-around;
+    justify-content: space-between;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding-bottom: 10px;
@@ -184,11 +184,6 @@ body {
 }
 
 .like:hover {
-    color: blue;
-    transition: 0.3s ease;
-}
-
-.dislike:hover {
     color: blue;
     transition: 0.3s ease;
 }

@@ -1,8 +1,10 @@
 import './App.css';
+import './index.css';
 import ArticleDetails from './components/ArticleDetails/ArticleDetails';
 import CreateArticle from './components/CreateArticle/CreateArticle';
 import DailyNews from './components/DailyNews/DailyNews';
 import EditArticle from './components/EditArticle/EditArticle';
+import Footer from './components/Footer/Footer.js';
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -13,7 +15,7 @@ import Transfers from './components/Transfers/Transfers';
 function App() {
   return (
       <>
-        <Header />
+        {/* <Header /> */}
         {/* <ArticleDetails /> */}
         {/* <CreateArticle /> */}
         {/* <EditArticle /> */}
@@ -23,6 +25,7 @@ function App() {
         {/* <PlayersDetails /> */}
         {/* <Register /> */}
         {/* <Transfers /> */}
+        {/* <Footer /> */}
       </>
   );
 }
