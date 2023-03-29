@@ -18,7 +18,7 @@ export default function Transfers() {
                                 <img src={argentinianFlag} alt="Argentinian flag" />
                             </div>
 
-                            <div className={styles["back-image"]}>
+                            <div className={styles["player-image"]}>
                                 <img src={enzo} />
                             </div>
 
