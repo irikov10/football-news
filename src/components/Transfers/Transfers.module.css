@@ -4,13 +4,8 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-}
-
-body {
     font-family: 'Montserrat', sans-serif;
 }
-
-
 .cards {
     padding: 30px 30px;
     display: flex;
@@ -23,7 +18,7 @@ body {
 .transfers-container {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/images/overlay\ pictures/stadium.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/images/overlay-pictures/stadium.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -108,7 +103,7 @@ body {
 }
 
 /* image */
-.back-image img {
+.player-image img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     object-fit: contain;
@@ -126,7 +121,7 @@ body {
 
 .content {
     background: linear-gradient(109.6deg, rgb(243, 67, 67) 11.2%, rgb(2, 38, 208) 80%);
-    padding: 0 20px;
+    /* padding: 0 20px; */
     text-align: center;
     margin-top: -5px;
 }

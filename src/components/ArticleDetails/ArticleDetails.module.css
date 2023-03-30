@@ -4,11 +4,15 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     background: lightblue;
-    font-family: 'Montserrat', sans-serif;
+}
+
+#main {
+    margin: 110px 120px 120px 120px;
 }
 
 .article-details {
@@ -29,56 +33,56 @@ body {
     background-color: white;
 }
 
-.article-content {
+.article-news-content {
     padding: 32px 40px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-.article-text {
+.article-news-text {
     font-size: 20px;
     margin-bottom: 12px;
     line-height: 1.4;
 }
 
-.article-content-footer {
+.news-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.author {
+.news-author {
     display: flex;
     position: relative;
     left: -32%;
     margin-top: 30px;
 }
 
-.article-author {
+.author-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 15px;
 }
 
-.author-name {
+.author-news-name {
     color: black;
 }
 
-.sub-name {
+.sub-news-name {
     color: darkblue;
 }
 
-.back {
+.back-icon {
     padding: 20px 10px 5px 10px;
 }
 
-.back i {
+.back-icon i {
     padding-right: 30px;
 }
 
-.back a {
+.back-icon a {
     text-decoration: none;
     color: black;
     padding-left: 20px;
@@ -145,7 +149,7 @@ body {
     padding-left: 10px;
 }
 
-.comment-author .author-info {
+.comment-author .author-information {
     padding-bottom: 20px;
 }
 

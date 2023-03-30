@@ -1,11 +1,5 @@
 * {
     box-sizing: border-box;
-}
-
-body {
-    background-image: url('../../assets/images/overlay\ pictures/football-ball.png');
-    background-size: cover;
-    background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
 }
 

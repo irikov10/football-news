@@ -1,5 +1,5 @@
-import './App.css';
-import './index.css';
+import { Routes, Route } from 'react-router-dom';
+
 import ArticleDetails from './components/ArticleDetails/ArticleDetails';
 import CreateArticle from './components/CreateArticle/CreateArticle';
 import DailyNews from './components/DailyNews/DailyNews';
@@ -14,19 +14,19 @@ import Transfers from './components/Transfers/Transfers';
 
 function App() {
   return (
-      <>
-        {/* <Header /> */}
-        {/* <ArticleDetails /> */}
-        {/* <CreateArticle /> */}
-        {/* <EditArticle /> */}
-        {/* <DailyNews /> */}
-        {/* <Home /> */}
-        {/* <Login /> */}
-        {/* <PlayersDetails /> */}
-        {/* <Register /> */}
-        {/* <Transfers /> */}
-        {/* <Footer /> */}
-      </>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dailyNews" element={<DailyNews />} />
+        <Route path="/transfers" element={<Transfers />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/details/articles/:articleId" element={<ArticleDetails />} />
+        <Route path="/details/players/:playerId" element={<PlayersDetails />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

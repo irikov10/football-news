@@ -1,12 +1,11 @@
 import styles from './Home.module.css'
-import mbappe from '../../assets/images/overlay pictures/kylian-mbappe.png'
+import mbappe from '../../assets/images/overlay-pictures/kylian-mbappe.png'
 
 export default function Home() {
 
     return (
-        <body>
 
-            <main id={styles["main"]}>
+            <main className={styles["main"]}>
                 <div className={styles["container"]}>
                     <div className={styles["col"]}>
                         <h2>Want to keep up with the</h2>
@@ -19,6 +18,5 @@ export default function Home() {
                     <img src={mbappe} alt="Kylian Mbappe" />
                 </div>
             </main>
-        </body>
     )
 }
