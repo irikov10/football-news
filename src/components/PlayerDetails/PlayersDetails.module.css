@@ -4,11 +4,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url('../../assets/images/overlay-pictures/stadium.jpg');
 }
 
 .player-details {
@@ -33,20 +29,19 @@ body {
     width: 500px;
     height: 500px;
     border-radius: 20px;
+    margin-top: 20px;
 }
 
 .player-details-content {
     background: white;
-    position: absolute;
-    top: 59%;
     border-radius: 30px;
-    margin: 0px 20px 0px 20px;
-    height: 400px;
+    margin: 500px 40px 20px 40px;
+    height: 450px;
 }
 
 .player-details-content h1 {
     text-align: center;
-    padding: 20px 0px;
+    padding: 50px 0px;
     font-size: 35px;
 }
 

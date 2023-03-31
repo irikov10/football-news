@@ -1,18 +1,20 @@
 import styles from './ArticleDetails.module.css'
 
 import fabrizio from '../../assets/news-authors-images/3ifAqala_400x400.jpg';
-import conte from '../../assets/player images/antonio-conte.jpg';
-// import { Like } from 'react-icons/fa/AiOutlineLike'
+import conte from '../../assets/player-images/antonio-conte.jpg';
+import { AiOutlineLike } from 'react-icons/ai'
+import { IoMdArrowRoundBack } from 'react-icons/io'
+import { FaRegComment } from 'react-icons/fa'
 
 import { Link } from 'react-router-dom'
 
 export default function ArticleDetails() {
     return (
-        <main id={styles["main"]}>
+        <main className={styles["main"]}>
             <div className={styles["article-details"]}>
                 <article className={styles["news-details"]}>
                     <div className={styles["back-icon"]}>
-                        <h2><Link to="/dailyNews"><i className="fa-solid fa-arrow-left"></i></Link>Current Article</h2>
+                        <h2><Link to="/dailyNews"><IoMdArrowRoundBack className={styles["arrow-left-icon"]} /></Link>Current Article</h2>
                     </div>
 
                     <div className={styles["news-content"]}>
@@ -41,16 +43,14 @@ export default function ArticleDetails() {
                             </p>
 
                             <div className={styles["article-details-image"]}>
-                                <img src={conte} alt="Antonio Conte"/>
+                                <img src={conte} alt="Antonio Conte" />
                             </div>
 
                             <hr className={styles["line"]} />
-                            {/* 
-                    <div className={styles["article-details-interactions"]}>
-                        <p className={styles["like"]}><FontAwesomeIcon icon="fa-regular fa-thumbs-up" />30k</p>
-                        <p className={styles["dislike"]}><FontAwesomeIcon icon="fa-regular fa-thumbs-down" />100</p>
-                        <p className={styles["comment"]}><FontAwesomeIcon icon="fa-regular fa-comment" />2000</p>
-                    </div> */}
+                            <div className={styles["article-details-interactions"]}>
+                                <p className={styles["like"]}><AiOutlineLike className={styles["icon"]} />30k</p>
+                                <p className={styles["comment"]}><FaRegComment className={styles["icon"]} />2000</p>
+                            </div>
                             <hr className={styles["line"]} />
                         </div>
                     </div>
@@ -83,6 +83,9 @@ export default function ArticleDetails() {
                         <div className={styles["comment-content"]}>
                             <p>Great work Fabri, keep it up!</p>
                         </div>
+
+                        <hr className={styles["line"]} />
+
                     </div>
                 </article>
             </div>

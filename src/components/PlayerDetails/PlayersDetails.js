@@ -1,9 +1,10 @@
 import styles from './PlayersDetails.module.css';
-import enzo from '../../assets/player images/player-details-enzo.jpg';
+import enzo from '../../assets/player-images/player-details-enzo.jpg';
+import background from '../../assets/images/overlay-pictures/stadium.jpg'
 
 export default function PlayersDetails() {
     return (
-        <body>
+        <main style={{backgroundImage: `url(${background})`}}>
             <div className={styles["player-details-image"]}>
                 <img src={enzo} alt="Enzo Fernandez" />
             </div>
@@ -21,6 +22,6 @@ export default function PlayersDetails() {
                     An Argentine international, Fernández previously represented his country at under-18 level before making his senior international debut. He represented Argentina at the 2022 FIFA World Cup, playing an important role in helping his country win their third title, while also winning the tournament's Young Player Award.
                 </p>
             </div>
-        </body>
+        </main> 
     )
 }
