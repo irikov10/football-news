@@ -9,77 +9,19 @@
 .cards {
     padding: 30px 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    gap: 8px;
+    margin: 0 300px;
 }
 
 .transfers-container {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/images/overlay-pictures/stadium.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     align-items: center;
     margin: 0px;
-}
-
-/* Navigation */
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 10%;
-    padding-right: 10%;
-    /* background: linear-gradient(rgba(255, 197, 61, 0.4), rgba(255, 94, 7, 0.5));*/
-    background: linear-gradient(112.1deg, rgb(28, 52, 79, 0.3) 11.4%, rgb(83, 128, 189, 0.3) 100%);
-    /* background: radial-gradient(circle at 10% 20%, rgb(239, 246, 249) 0%, rgb(206, 239, 253) 50%); */
-}
-
-.logo {
-    color: #AEC8CC;
-    font-size: 28px;
-}
-
-.logo span {
-    color: white;
-}
-
-.navigation ul li {
-    list-style: none;
-    display: inline-block;
-    padding: 10px 20px;
-}
-
-.navigation ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.navigation ul li a:hover {
-    color: red;
-    transition: .3s;
-}
-
-.sign-in-button {
-    border: none;
-    background: #5380BD;
-    padding: 5px 30px;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    transition: .4s;
-}
-
-.sign-in-button:hover {
-    transform: scale(1.3);
-    cursor: pointer;
 }
 
 .top-three {
@@ -96,7 +38,7 @@
     position: relative;
     background-color: #ffffff;
     height: 450px;
-    width: 303px;
+    width: 350px;
     border: 3px solid black;
     border-radius: 12px;
     background: linear-gradient(109.6deg, rgb(243, 67, 67) 11.2%, rgb(2, 38, 208) 80%);
@@ -110,7 +52,7 @@
     width: 100%;
     height: 170px;
     position: absolute;
-    top: 1.9%;
+    top: 6.7%;
 }
 
 /* image container */
@@ -121,13 +63,14 @@
 
 .content {
     background: linear-gradient(109.6deg, rgb(243, 67, 67) 11.2%, rgb(2, 38, 208) 80%);
-    /* padding: 0 20px; */
+    padding: 0 20px;
     text-align: center;
     margin-top: -5px;
 }
 
 .background-image img{
-    width: 297px;
+    width: 344px;
+    height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     overflow: hidden;
@@ -135,10 +78,12 @@
 
 .team {
     width: 70px;
+    height: 70px;
 }
 
-.team {
-    width: 70px;
+.transfers-icon {
+    font-size: 30px;
+    color: orange;
 }
 
 .deal {
@@ -173,7 +118,7 @@
 
 .read-more {
     position: absolute;
-    top: 90%;
+    top: 93%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-decoration: none;

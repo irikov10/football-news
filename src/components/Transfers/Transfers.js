@@ -1,12 +1,47 @@
 import styles from './Transfers.module.css';
-import argentinianFlag from '../../assets/images/national-flags/argentinian flag.jpg'
-import enzo from '../../assets/player-images/Enzo.png'
-import benfica from '../../assets/images/football-badges/benfica-badge.svg'
-import chelsea from '../../assets/images/football-badges/chelsea-badge.png'
 
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { getAllFootballers } from '../../services/playersService';
+import { AiOutlineArrowRight } from 'react-icons/ai'
 
 export default function Transfers() {
+    const [players, setPlayers] = useState([]);
+
+    useEffect(() => {
+        getAllFootballers()
+            .then(setPlayers)
+            .catch(err => err.message)
+    }, [])
+
+    const cards = players.map((player) => {
+        return (
+            <section className={styles["player-card"]}>
+            <div className={styles["background-image"]}>
+                <img src={player.flag} alt="" />
+            </div>
+
+            <div className={styles["player-image"]}>
+                <img src={player.image} alt={player.lastName} />
+            </div>
+
+            <div className={styles["content"]}>
+                <h3 className={styles["player-name"]}><span className={styles["red"]}>{player.firstName}</span> <span className={styles["blue"]}>{player.lastName}</span></h3>
+            </div>
+            <h2 className={styles["done-deal"]}><span className={styles["red"]}>Done</span> <span className={styles["blue"]}>Deal!</span></h2>
+            <div className={styles["transfer-info"]}>
+                <div className={styles["deal"]}>
+                    <img src={player.firstTeam} alt="" className={styles["team"]} />
+                    <AiOutlineArrowRight className={styles["transfers-icon"]} /><img
+                        src={player.secondTeam} alt="" className={styles["team"]} />
+                </div>
+                <p className={styles["price"]}>Transfer Price: {player.price}</p>
+            </div>
+
+            <Link to="/" className={styles["read-more"]}>Read More</Link>
+        </section>
+        )
+    })
 
     return (
 
@@ -14,31 +49,7 @@ export default function Transfers() {
 
             <div className={styles["top-three"]}>
                 <section className={styles["cards"]}>
-                    <section className={styles["player-card"]}>
-                        <div className={styles["background-image"]}>
-                            <img src={argentinianFlag} alt="Argentinian flag" />
-                        </div>
-
-                        <div className={styles["player-image"]}>
-                            <img src={enzo} alt="Enzo Fernandez"/>
-                        </div>
-
-                        <div className={styles["content"]}>
-                            <h3 className={styles["player-name"]}><span className={styles["red"]}>Enzo</span> <span className={styles["blue"]}>Fernandez</span>
-                            </h3>
-                        </div>
-                        <h2 className={styles["done-deal"]}><span className={styles["red"]}>Done</span> <span className={styles["blue"]}>Deal!</span></h2>
-                        <div className={styles["transfer-info"]}>
-                            <div className={styles["deal"]}>
-                                <img src={benfica} alt="BEN badge" className={styles["team"]} />
-                                <i className="fa-solid fa-arrow-right"></i><img
-                                    src={chelsea} alt="CHE bagde" className={styles["team"]} />
-                            </div>
-                            <p className={styles["price"]}>Transfer Price: €121.00m</p>
-                        </div>
-
-                        <Link to="/" className={styles["read-more"]}>Read More</Link>
-                    </section>
+                    {cards}
                 </section>
             </div>
         </div>
