@@ -11,21 +11,24 @@ import Login from './components/Login/Login';
 import PlayersDetails from './components/PlayerDetails/PlayersDetails';
 import Register from './components/Register/Register';
 import Transfers from './components/Transfers/Transfers';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dailyNews" element={<DailyNews />} />
-        <Route path="/transfers" element={<Transfers />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/details/articles/:articleId" element={<ArticleDetails />} />
-        <Route path="/details/players/:playerId" element={<PlayersDetails />} />
-      </Routes>
-      <Footer />
+      <AuthProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dailyNews" element={<DailyNews />} />
+          <Route path="/transfers" element={<Transfers />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/details/articles/:articleId" element={<ArticleDetails />} />
+          <Route path="/details/players/:playerId" element={<PlayersDetails />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </>
   );
 }
