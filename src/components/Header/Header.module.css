@@ -33,6 +33,7 @@ body {
 /* Navigation */
 .navigation {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding-top: 30px;
@@ -81,6 +82,23 @@ body {
 }
 
 .sign-in-button:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.logout-btn {
+    border: none;
+    background: #5380BD;
+    padding: 5px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+    text-decoration: none;
+}
+
+.logout-btn {
     transform: scale(1.3);
     cursor: pointer;
 }
