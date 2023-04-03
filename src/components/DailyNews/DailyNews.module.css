@@ -34,14 +34,14 @@ html {
 
 .news {
     border: 3px solid black;
-    /* border-radius: 20px; */
-    /* margin: 10px; */
+    border-radius: 20px; 
+    margin: 10px; 
     background-color: white;
     width: 770px;
 }
 
 .article-content {
-    padding: 20px 30px 20px 40px;
+    padding: 20px 40px 20px 40px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -81,8 +81,15 @@ html {
     color: darkblue;
 }
 
-.article-content-image {
-    margin: auto;
+.article-content-image {    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-content-image img {
+    /* width: 100%; */
     border-radius: 20px;
 }
 

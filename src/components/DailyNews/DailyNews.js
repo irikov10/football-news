@@ -3,12 +3,15 @@ import { AiOutlineLike } from "react-icons/ai"
 import { FaRegComment } from 'react-icons/fa'
 import ArticleDetails from '../ArticleDetails/ArticleDetails'
 
-import { Link } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getAllArticles } from '../../services/newsService'
 
 export default function DailyNews() {
     const [articles, setArticles] = useState([]);
+    const navigate = useNavigate();
+
+    console.log(articles)
 
     useEffect(() => {
         getAllArticles()
@@ -16,11 +19,15 @@ export default function DailyNews() {
             .catch(error => console.log(error.message))
     }, [])
 
-    console.log(articles)
-
     const news = articles.map((article) => {
+        console.log(article)
+
+        const showArticleDetails = () => {
+            navigate(`/details/articles/${article._id}`)
+        }
+
         return (
-            <article className={styles["news"]} key={article._id}>
+            <article className={styles["news"]} key={article._id} onClick={showArticleDetails}>
                 <div className={styles["article-content-footer"]}>
                     <div className={styles["author"]}>
                         <img src={article.image} alt=""
@@ -38,13 +45,10 @@ export default function DailyNews() {
                     <div className={styles["article-content"]}>
                         <h3 className={styles["article-text"]}>{article.content}</h3>
 
-                        <img src={article.articleImage} className={styles["article-content-image"]} />
+                        <div className={styles["article-content-image"]}>
+                            <img src={article.articleImage} />
+                        </div>
                     </div>
-                </div>
-
-                <div className={styles["amount-interactions"]}>
-                    <p className={styles["likes-amount"]}><AiOutlineLike className={styles["interactions-icon"]} />{article.likes}</p>
-                    <p className={styles["comments-amount"]}><FaRegComment className={styles["interactions-icon"]} /></p>
                 </div>
 
                 <div className={styles["interactions"]}>
