@@ -27,7 +27,7 @@
     transform: translate(-50%, -50%);
     background: white;
     width: 500px;
-    height: 500px;
+    height: 400px;
     border-radius: 20px;
     margin-top: 20px;
 }
@@ -35,8 +35,8 @@
 .player-details-content {
     background: white;
     border-radius: 30px;
-    margin: 500px 40px 20px 40px;
-    height: 450px;
+    margin: 450px 80px 20px 80px;
+    height: 100%;
 }
 
 .player-details-content h1 {
