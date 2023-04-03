@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 
 export default function Header() {
-  const { isAuthenticated, userEmail } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
 
   return (
     <header className={styles["hero"]}>
