@@ -14,9 +14,11 @@ export default function Transfers() {
             .catch(err => err.message)
     }, [])
 
+    console.log(players)
+
     const cards = players.map((player) => {
         return (
-            <section className={styles["player-card"]}>
+        <section className={styles["player-card"]} key={player._id}>
             <div className={styles["background-image"]}>
                 <img src={player.flag} alt="" />
             </div>
@@ -38,7 +40,7 @@ export default function Transfers() {
                 <p className={styles["price"]}>Transfer Price: {player.price}</p>
             </div>
 
-            <Link to="/" className={styles["read-more"]}>Read More</Link>
+            <Link to={`/details/players/${player._id}`} className={styles["read-more"]}>Read More</Link>
         </section>
         )
     })
