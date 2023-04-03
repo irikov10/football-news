@@ -1,33 +1,16 @@
+import { requesterFactory } from '../services/requester'
+
 const baseUrl = 'http://localhost:3030/jsonstore/football/'
+const request = requesterFactory();
 
 export const getAllArticles = async() => {
-    const response = await fetch(baseUrl + "news/");
-
-    if (response.status === 204) {
-        return {}
-    }
-
-    const result = await response.json();
-
-    if(!response.ok) {
-        throw result
-    }
+    const result = await request.get(baseUrl + "news/");
 
     return Object.values(result);
 }
 
 export const getArticleId = async(articleId) => {
-    const response = await fetch(baseUrl + `details/${articleId}`);
-
-    if (response.status === 204) {
-        return {}
-    }
-
-    const result = await response.json();
-
-    if(!response.ok) {
-        throw result
-    }
+    const result = await request.get(baseUrl + `news/${articleId}`);
 
     return result
 }
