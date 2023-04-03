@@ -7,11 +7,14 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    overflow: hidden;
+}
+
 .main {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/images/overlay-pictures/stadium.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    /* overflow: hidden; */
     /* height: 100vh; */
 }
 
