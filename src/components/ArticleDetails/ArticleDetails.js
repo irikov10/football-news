@@ -1,22 +1,25 @@
 import styles from './ArticleDetails.module.css'
 
 import fabrizio from '../../assets/news-authors-images/3ifAqala_400x400.jpg';
-import conte from '../../assets/player-images/antonio-conte.jpg';
+
 import { AiOutlineLike } from 'react-icons/ai'
 import { IoMdArrowRoundBack } from 'react-icons/io'
 import { FaRegComment } from 'react-icons/fa'
+import { FaEdit } from 'react-icons/fa'
 
 import { Link, useParams } from 'react-router-dom'
-import * as newsService from '../../services/newsService'
+import { articlesServiceFactory } from '../../services/newsService'
 import { useEffect, useState } from 'react';
+import { useService } from '../../hooks/useService';
 
 export default function ArticleDetails() {
     const [article, setArticle] = useState([]);
     const { articleId } = useParams();
+    const articlesFactory = useService(articlesServiceFactory);
 
     useEffect(() => {
-        newsService.getArticleId(articleId)
-        .then(setArticle)
+        articlesFactory.getArticle(articleId)
+            .then(setArticle)
     }, [])
 
     return (
@@ -49,12 +52,10 @@ export default function ArticleDetails() {
                                 <img src={article.articleImage} alt="" />
                             </div>
 
-                            <hr className={styles["line"]} />
                             <div className={styles["article-details-interactions"]}>
                                 <p className={styles["like"]}><AiOutlineLike className={styles["icon"]} /></p>
                                 <p className={styles["comment"]}><FaRegComment className={styles["icon"]} /></p>
                             </div>
-                            <hr className={styles["line"]} />
                         </div>
                     </div>
 

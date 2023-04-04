@@ -68,6 +68,9 @@
 
 .back-icon {
     padding: 20px 10px 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .arrow-left-icon {
@@ -75,10 +78,14 @@
     font-size: 50px;
 }
 
-.back-icon a {
+.optional-icons .arrow-left-icon {
     text-decoration: none;
     color: black;
     padding-left: 20px;
+}
+
+.article-details-image {
+    margin-bottom: 10px;
 }
 
 .article-details-image img{
@@ -87,9 +94,6 @@
     border-radius: 10px;
 }
 
-.line {
-    margin: 10px 0px 20px 0px;
-}
 
 /* Interactions */
 
@@ -97,15 +101,15 @@
     display: flex;
     background-color: white;
     justify-content: space-around;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     padding-bottom: 10px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .article-details-interactions .icon {
-    font-size: 30px;
+    font-size: 40px;
     padding-right: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .article-details-interactions p {
@@ -118,10 +122,6 @@
     transition: 0.3s ease;
 }
 
-.dislike:hover {
-    color: blue;
-    transition: 0.3s ease;
-}
 
 .comment:hover {
     color: green;
