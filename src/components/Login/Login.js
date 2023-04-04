@@ -26,7 +26,7 @@ export default function Login() {
         <main style={{ backgroundImage: `url(${background})` }}>
             <div className={styles["login-container"]}>
 
-                <form 
+                <form
                     className={styles["login-form"]}
                     id="login"
                     method="POST"
@@ -35,8 +35,8 @@ export default function Login() {
                     <h2>Login</h2>
                     <div className={styles["input-box"]}>
                         <span className={styles["icon"]}><FaEnvelope /></span>
-                        <input 
-                            type="email" 
+                        <input
+                            type="email"
                             id="email"
                             name={loginFormKeys.email}
                             value={values[loginFormKeys.email]}
@@ -48,8 +48,8 @@ export default function Login() {
 
                     <div className={styles["input-box"]}>
                         <span className={styles["icon"]}><FaLock /></span>
-                        <input 
-                            id="password" 
+                        <input
+                            id="password"
                             type="password"
                             name={loginFormKeys.password}
                             value={values[loginFormKeys.password]}
@@ -59,7 +59,7 @@ export default function Login() {
                         <label htmlFor="password">Password</label>
                     </div>
 
-                    <button type="submit" className={styles["login-btn"]}>Login</button>
+                    <button type="submit" className={styles["login-btn"]} value="Login">Login</button>
 
                     <div className={styles["login-register"]}>
                         <h4>Don't have an account? <Link to="/register" className={styles["register-link"]}>Register</Link></h4>
