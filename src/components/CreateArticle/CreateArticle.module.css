@@ -4,11 +4,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url('../../assets/images/overlay-pictures/stadium.jpg');
 }
 
 .create-article {
@@ -18,8 +14,9 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     width: 700px;
-    height: 300px;
+    height: 500px;
     border-radius: 10px;
+    padding: 20px;
 }
 
 .create-article h1 {
@@ -45,8 +42,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.create-post-button a{
-    text-decoration: none;
+.create-post-button button{
     background-color: black;
     color: white;
     padding: 5px 15px;
