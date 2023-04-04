@@ -1,26 +1,24 @@
 import styles from './DailyNews.module.css'
 import { AiOutlineLike } from "react-icons/ai"
 import { FaRegComment } from 'react-icons/fa'
-import ArticleDetails from '../ArticleDetails/ArticleDetails'
 
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { getAllArticles } from '../../services/newsService'
+import { articlesServiceFactory } from '../../services/newsService'
+import { useService } from '../../hooks/useService'
+import { Link } from 'react-router-dom'
 
 export default function DailyNews() {
     const [articles, setArticles] = useState([]);
     const navigate = useNavigate();
-
-    console.log(articles)
+    const articlesFactory = useService(articlesServiceFactory);
 
     useEffect(() => {
-        getAllArticles()
+        articlesFactory.getAllArticles()
             .then(setArticles)
-            .catch(error => console.log(error.message))
     }, [])
 
     const news = articles.map((article) => {
-        console.log(article)
 
         const showArticleDetails = () => {
             navigate(`/details/articles/${article._id}`)
@@ -68,10 +66,8 @@ export default function DailyNews() {
             </div>
 
             <div className={styles["add-article"]}>
-                <button><i className="fa-solid fa-plus"></i>Add Article</button>
+                <Link to='/create'>Add Article</Link>
             </div>
-
-
         </main>
     )
 }

@@ -89,20 +89,8 @@ html {
 }
 
 .article-content-image img {
-    /* width: 100%; */
+    width: 100%;
     border-radius: 20px;
-}
-
-.amount-interactions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.amount-interactions p {
-    font-size: 20px;
-    margin-bottom: 5px;
-    font-weight: bold;
 }
 
 .news:hover {
@@ -148,13 +136,14 @@ html {
     align-self: center;
 }
 
-.add-article button {
+.add-article a {
     padding: 5px 10px;
     margin-bottom: 20px;
     border-radius: 10px;
     background-color: #5380BD;
     color: white;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .add-article i {
