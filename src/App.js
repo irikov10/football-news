@@ -14,29 +14,38 @@ import Transfers from './components/Transfers/Transfers';
 import { Logout } from './components/Logout/Logout'
 import { AuthProvider } from './contexts/AuthContext';
 import { ArticlesProvider } from './contexts/ArticleContext';
+import { RouteGuard } from './components/common/RouteGard';
 
 function App() {
-  return (
-    <>
-      <AuthProvider>
-        <ArticlesProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dailyNews" element={<DailyNews />} />
-            <Route path="/transfers" element={<Transfers />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/details/articles/:articleId" element={<ArticleDetails />} />
-            <Route path="/details/players/:playerId" element={<PlayersDetails />} />
-            <Route path="/create" element={<CreateArticle />} />
-          </Routes>
-          <Footer />
-        </ArticlesProvider>
-      </AuthProvider>
-    </>
-  );
+	return (
+		<>
+			<AuthProvider>
+				<ArticlesProvider>
+					<Header />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/dailyNews" element={<DailyNews />} />
+						<Route path="/transfers" element={<Transfers />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/logout" element={<Logout />} />
+						<Route path="/details/articles/:articleId" element={
+							<RouteGuard>
+								<ArticleDetails />
+							</RouteGuard>
+						} />
+						<Route path="/details/players/:playerId" element={
+							<RouteGuard>
+								<PlayersDetails />
+							</RouteGuard>} />
+						<Route path="/create" element={<CreateArticle />} />
+						<Route path="/edit/:articleId" element={<EditArticle />} />
+					</Routes>
+					<Footer />
+				</ArticlesProvider>
+			</AuthProvider>
+		</>
+	);
 }
 
 export default App;
