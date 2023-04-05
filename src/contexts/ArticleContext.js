@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { articlesServiceFactory } from '../services/newsService'
 
 const ArticleContext = createContext();
@@ -8,6 +8,7 @@ export const ArticlesProvider = ({ children }) => {
     const navigate = useNavigate();
     const [articles, setArticles] = useState([]);
     const articlesService = articlesServiceFactory();
+    const { articleId } = useParams()
 
     useEffect(() => {
         articlesService.getAllArticles()
@@ -36,25 +37,24 @@ export const ArticlesProvider = ({ children }) => {
     }
 
     const onEditArticleSubmit = async (values) => {
-
         try {
             const { name, subName, content, articleImage } = values;
 
             if (!name || !subName || !content || !articleImage) {
-                throw new Error('All field are required!')
+                throw new Error('All fields are required');
             }
 
-            const editedArticle = await articlesService.edit(values._id, values);
+            const result = await articlesService.edit(values._id, values);
 
             setArticles((state) =>
-                state.map((x) => (x._id === values._id ? editedArticle : x))
+                state.map((x) => (x._id === values._id ? result : x))
             );
 
-            navigate('/dailyNews');
+            navigate(`/dailyNews`);
         } catch (error) {
-            alert(error.message);
+            alert('Error: ' + error.message);
         }
-    }
+    };
 
     const deleteArticle = (articleId) => {
         setArticles((state) => state.filter((article) => article._id !== articleId))
