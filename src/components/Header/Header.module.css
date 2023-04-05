@@ -46,6 +46,7 @@ body {
 .logo {
     color: #AEC8CC;
     font-size: 28px;
+    text-decoration: none;
 }
 
 .logo span {

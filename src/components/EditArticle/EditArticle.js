@@ -7,25 +7,25 @@ import { useForm } from '../../hooks/useForm';
 import { useService } from '../../hooks/useService';
 import { articlesServiceFactory } from '../../services/newsService';
 
-export default function EditArticle() {
+export function EditArticle() {
 
-    const { onArticleEditSubmit } = useArticlesContext();
+    const { onEditArticleSubmit } = useArticlesContext();
     const { articleId } = useParams();
     const articlesFactory = useService(articlesServiceFactory);
-    const { values, changeHandler, onSubmit, changeValues } = useForm(
+    const { values, changeHandler, onSubmit, valuesChange } = useForm(
         {
             name: '',
             subName: '',
             content: '',
             articleImage: '',
         },
-        onArticleEditSubmit
+        onEditArticleSubmit
     );
 
     useEffect(() => {
         articlesFactory.getArticle(articleId)
             .then((data) => {
-                changeValues(data);
+                valuesChange(data);
             });
     }, [articleId]);
 
@@ -35,9 +35,10 @@ export default function EditArticle() {
             <h1>Edit Article</h1>
 
             <form
+                id={styles['edit-form']}
                 className={styles["edit-form"]}
-                onSubmit={onSubmit}
                 method="POST"
+                onSubmit={onSubmit}
             >
 
                 <div className={styles["input-box"]}>
@@ -84,7 +85,7 @@ export default function EditArticle() {
                 </div>
 
                 <div className={styles["create-edit-button"]}>
-                    <input type="submit">Edit</input>
+                    <button type="submit" value="Edit">Edit</button>
                 </div>
             </form>
         </div>

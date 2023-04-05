@@ -3,10 +3,11 @@ import { AiOutlineLike } from "react-icons/ai"
 import { FaRegComment } from 'react-icons/fa'
 
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { articlesServiceFactory } from '../../services/newsService'
 import { useService } from '../../hooks/useService'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function DailyNews() {
     const [articles, setArticles] = useState([]);

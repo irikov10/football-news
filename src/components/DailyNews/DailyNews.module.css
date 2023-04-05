@@ -89,7 +89,7 @@ html {
 }
 
 .article-content-image img {
-    width: 100%;
+    /* width: 100%; */
     border-radius: 20px;
 }
 

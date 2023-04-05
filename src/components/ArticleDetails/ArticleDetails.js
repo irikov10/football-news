@@ -7,20 +7,38 @@ import { IoMdArrowRoundBack } from 'react-icons/io'
 import { FaRegComment } from 'react-icons/fa'
 import { FaEdit } from 'react-icons/fa'
 
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { articlesServiceFactory } from '../../services/newsService'
 import { useEffect, useState } from 'react';
 import { useService } from '../../hooks/useService';
+import { useArticlesContext } from '../../contexts/ArticleContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function ArticleDetails() {
     const [article, setArticle] = useState([]);
     const { articleId } = useParams();
+    const { deleteArticle } = useArticlesContext();
+    const { userId } = useAuthContext()
     const articlesFactory = useService(articlesServiceFactory);
+    const isOwner = userId === article._ownerId;
 
     useEffect(() => {
         articlesFactory.getArticle(articleId)
             .then(setArticle)
     }, [])
+
+    const onDelete = async () => {
+        // eslint-disable-next-line no-restricted-globals
+        const confirmation = confirm(`Are you sure you want to delete this article`);
+
+        if (confirmation) {
+            await articlesFactory.delete(articleId);
+
+            deleteArticle(articleId)
+
+            Navigate('/dailyNews')
+        }
+    }
 
     return (
         <main className={styles["main"]}>
@@ -29,6 +47,13 @@ export default function ArticleDetails() {
                     <div className={styles["back-icon"]}>
                         <h2><Link to="/dailyNews"><IoMdArrowRoundBack className={styles["arrow-left-icon"]} /></Link>Current Article</h2>
                     </div>
+
+                    {isOwner ? (
+                        <div className={styles["edit-delete"]}>
+                            <Link to={`/edit/${articleId}`} className={styles['edit']}>Edit</Link>
+                            <button className={styles["delete"]} onClick={onDelete}>Delete</button>
+                        </div>
+                    ) : ""}
 
                     <div className={styles["news-content"]}>
                         <div className={styles["news-author"]}>

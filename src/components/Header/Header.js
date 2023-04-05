@@ -10,9 +10,9 @@ export default function Header() {
   return (
     <header className={styles["hero"]}>
       <nav className={styles["navigation"]}>
-        <h1 className={styles["logo"]}>
+        <NavLink to="/" className={styles["logo"]}>
           Football <span>News</span>
-        </h1>
+        </NavLink>
         <ul>
           <li>
             <NavLink
@@ -55,17 +55,17 @@ export default function Header() {
 
           {isAuthenticated ? (
             <li>
-                <NavLink to="/logout" className={styles["logout-btn"]}>
-                    Logout
-                </NavLink>
-          </li>
-        ) : (
+              <NavLink to="/logout" className={styles["logout-btn"]}>
+                Logout
+              </NavLink>
+            </li>
+          ) : (
             <li>
-                <NavLink to="/login" className={styles["sign-in-button"]}>
-                    Sign in
-                </NavLink>
-          </li>
-        )}
+              <NavLink to="/login" className={styles["sign-in-button"]}>
+                Sign in
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
