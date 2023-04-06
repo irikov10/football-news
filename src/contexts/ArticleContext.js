@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { articlesServiceFactory } from '../services/newsService'
 
 const ArticleContext = createContext();
@@ -8,7 +8,6 @@ export const ArticlesProvider = ({ children }) => {
     const navigate = useNavigate();
     const [articles, setArticles] = useState([]);
     const articlesService = articlesServiceFactory();
-    const { articleId } = useParams()
 
     useEffect(() => {
         articlesService.getAllArticles()
