@@ -8,7 +8,9 @@ export const useForm = (initialValues, onSubmitHandler) => {
 
     //change the value 
     const changeHandler = (e) => {
-        setValues((state) => ({ ...state, [e.target.name]: e.target.value }));
+        if (e.target) {
+            setValues((state) => ({ ...state, [e.target.name]: e.target.value }));
+        }
     }
 
     const onSubmit = (e) => {
