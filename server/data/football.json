@@ -173,5 +173,40 @@
             "_id": "5a27a124-4d6a-4690-a21a-cb449490c231",
             "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8"
         }
+    },
+    "comments": {
+        "1b6bbc68-a1c4-4bdb-b3a7-dbda4cbdcdaa": [
+            {
+                "name": "Bobby Scott",
+                "subName": "@BobbyScott12",
+                "comment": "Hereee weee gooooo :)",
+                "_id": "1b6bbc68-a1c4-4bdb-b3a7-dbda4cbdcdaa",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8"
+            }
+        ],
+        "e4ef7bbc-cdaf-4b6c-a255-5a61c2c9962e": [
+            {
+                "name": "Marcus Balvin",
+                "subName": "@MarcusBalvin",
+                "comment": "Great job, keep up the good work",
+                "_id": "e4ef7bbc-cdaf-4b6c-a255-5a61c2c9962e"
+            }
+        ],
+        "c568d233-c746-4f91-b27f-dd7ac57a3503": [
+            {
+                "name": "ImTheBest230",
+                "subName": "@TheBest230",
+                "comment": "No words, this guy does not miss to inform us on everything. Admirations",
+                "_id": "c568d233-c746-4f91-b27f-dd7ac57a3503"
+            }
+        ],
+        "f99cbd9b-fbf6-4022-bcdf-fa36bc369e17": [
+            {
+                "name": "Johny Mccarthy",
+                "subName": "@JohnyMccarthy",
+                "comment": "Our favourite journalist is back with some more news, babyy!",
+                "_id": "f99cbd9b-fbf6-4022-bcdf-fa36bc369e17"
+            }
+        ]
     }
 }
