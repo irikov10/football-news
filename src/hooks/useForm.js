@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 export const useForm = (initialValues, onSubmitHandler) => {
-    console.log(onSubmitHandler)
 
     //state for the values
     const [values, setValues] = useState(initialValues);

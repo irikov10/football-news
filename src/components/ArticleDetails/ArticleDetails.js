@@ -6,67 +6,49 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { IoMdArrowRoundBack } from 'react-icons/io'
 import { FaRegComment } from 'react-icons/fa'
 
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { articlesServiceFactory } from '../../services/newsService'
 import { useEffect, useState } from 'react';
 import { useService } from '../../hooks/useService';
 import { useArticlesContext } from '../../contexts/ArticleContext';
-import { useAuthContext } from '../../contexts/AuthContext';
-import { useForm } from '../../hooks/useForm';
 import * as commentService from '../../services/commentService'
+import { EditComment } from '../EditComments/EditComments';
+import { CreateComment } from '../CreateComment/CreateComment';
+import Profile from '../Profile/Profile';
 
 export default function ArticleDetails() {
-
     const [article, setArticle] = useState([]);
     const [comments, setComments] = useState([]);
     const { articleId } = useParams();
+    console.log(articleId)
     const { deleteArticle } = useArticlesContext();
-    const { userId } = useAuthContext()
+    const navigate = useNavigate();
 
     const articlesFactory = useService(articlesServiceFactory);
-    const isOwner = userId === article._ownerId;
 
     useEffect(() => {
-        articlesFactory.getArticle(articleId)
-            .then(setArticle)
-    }, [])
-
-    useEffect(() => {
-        commentService.getAllComments()
-            .then(setComments)
-    }, [])
+        Promise.all([articlesFactory.getArticle(articleId), commentService.getAllComments(articleId)])
+            .then(([articles, comments]) => {
+                setArticle(articles);
+                setComments(comments);
+            })
+    }, [articleId])
 
     const onCommentSubmit = async (values) => {
-        const newComment = await commentService.createComment(articleId, {
-            name: values.name,
-            comment: values.comment,
-            ownerId: values.ownerId,
-        });
+        try {
+            const { name, comment } = values;
 
-        console.log(values.name)
+            if (!name || !comment) {
+                throw new Error("All fields are required")
+            }
 
-        setComments((state) => [...state, newComment]);
+            const newComment = await commentService.createComment(articleId, values);
+
+            setComments((state) => [...state, newComment]);
+        } catch (err) {
+            console.log(err.message)
+        }
     };
-
-    const { values, changeHandler, onSubmit } = useForm(
-        {
-            name: '',
-            comment: '',
-            ownerId: userId
-        }, onCommentSubmit
-    );
-
-    console.log(comments)
-
-    useEffect(() => {
-        articlesFactory.getArticle(articleId)
-            .then(setArticle)
-    }, [])
-
-    useEffect(() => {
-        commentService.getAllComments(articleId)
-            .then(setComments)
-    }, [])
 
     const onDelete = async () => {
         // eslint-disable-next-line no-restricted-globals
@@ -77,9 +59,27 @@ export default function ArticleDetails() {
 
             deleteArticle(articleId)
 
-            Navigate('/dailyNews')
+            navigate('/dailyNews')
         }
     }
+
+    const onDeleteComment = async (commentId) => {
+        // eslint-disable-next-line no-restricted-globals
+        const result = confirm("Are you sure you want to delete this comment?");
+
+        if (result) {
+            await commentService.deleteComment(articleId, commentId);
+
+            setComments((state) =>
+                state.filter((comment) => comment._id !== commentId)
+            );
+
+            navigate('/details/' + article._id);
+        }
+    }
+
+    const isOwner = localStorage.getItem('auth')._id === article._ownerId;
+    const name = article.name;
 
     return (
         <main className={styles["main"]}>
@@ -98,10 +98,10 @@ export default function ArticleDetails() {
 
                     <div className={styles["news-content"]}>
                         <div className={styles["news-author"]}>
-                            <img src={article.image} alt="" className={styles["author-img"]} />
+                            <Profile name={name} />
 
                             <div className={styles["author-information"]}>
-                                <h4 className={styles["author-news-name"]}>Fabrizio Romano</h4>
+                                <h4 className={styles["author-news-name"]}>{article.name}</h4>
 
                                 <div className={styles["sub-news-name"]}>
                                     <h4>{article.subName}</h4>
@@ -125,52 +125,33 @@ export default function ArticleDetails() {
                         </div>
                     </div>
 
-                    <div className={styles["comment-box"]}>
+                    <CreateComment onCommentSubmit={onCommentSubmit} />
+                    {comments.map((c) => {
+                        const commentName = c.name;
 
-                        <form id="create-comment" method="POST" onSubmit={onSubmit}>
-                            <input
-                                type="text"
-                                name="name"
-                                id={styles['comment-name']}
-                                placeholder="Bruce Lee"
-                                value={values.name}
-                                onChange={changeHandler}
-                            />
-                            <textarea
-                                name="comment"
-                                id={styles['comment']}
-                                cols="30"
-                                rows="10"
-                                placeholder="Share your thoughts...."
-                                value={values.comment}
-                                onChange={changeHandler}
-                            ></textarea>
-                            <button className={styles['post-comment']} type="submit">
-                                Comment
-                            </button>
-                        </form>
-                    </div>
+                        return (
+                            <div key={c._id} className={styles['comment-section']}>
+                                <div className={styles['comment-author']}>
+                                    <Profile name={commentName} />
 
-                    {comments.map((comment) => (
-                        <div key={comment._id} className={styles['comment-section']}>
-                            <div className={styles['comment-author']}>
-                                <img
-                                    src={fabrizio}
-                                    className={styles['article-author']}
-                                />
-
-                                <div className={styles['author-information']}>
-                                    <h4 className={styles['author-news-name']}>
-                                        {comment.articleId.name}
-                                    </h4>
+                                    <div className={styles['author-information']}>
+                                        <h4 className={styles['author-news-name']}>
+                                            {c.name}
+                                        </h4>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className={styles['comment-content']}>
-                                <p>{comment.articleId.comment}</p>
+                                <div className={styles['comment-content']}>
+                                    <p>{c.comment}</p>
+                                </div>
+
+                                {isOwner ? (<div className={styles["edit-del-buttons"]}>
+                                    <Link to={`/editComment/${articleId}/${c._id}`} element={<EditComment />} className={styles["edit-button"]}>Edit</Link>
+                                    <button className={styles["delete-button"]} onClick={() => onDeleteComment(c._id)}>Delete</button>
+                                </div>) : null}
                             </div>
-                        </div>
-                    ))
+                        )
+                    })
                     }
                 </article>
             </div>

@@ -1,0 +1,81 @@
+.comment-box {
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.commentbox-comment-author {
+    display: flex;
+    padding: 10px 5px 10px 10px;
+}
+
+.commentbox-comment-author img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.comment-section {
+    padding-left: 10px;
+    width: 700px;
+}
+
+.comment-author {
+    display: flex;
+    padding: 10px 5px 0px 10px;
+    border-top: 2px solid black;
+}
+
+.comment-author .author-information {
+    padding-bottom: 20px;
+}
+
+.comment-author img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+#comment-name {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+#comment {
+    background: white;
+    height: 152px;
+    width: 600px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0.5px black;
+}
+
+#comment:focus-visible {
+    box-shadow: inset 0 0 0 1px lightblue;
+    outline: none;
+}
+
+.post-comment {
+    width: 100px;
+    padding: 6px 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: red;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    position: relative;
+    left: 85%;
+}
+
+.post-comment:hover {
+    background-color: green;
+}

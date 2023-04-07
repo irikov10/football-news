@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.edit-comment {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 700px;
+    height: 300px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.edit-comment h1 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.input-box label {
+    padding: 20px 0 10px 0;
+    font-weight: bold;
+}
+
+.create-edit-button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.create-edit-button button{
+    background-color: blanchedalmond;
+    color: black;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 6px;
+}

@@ -51,9 +51,9 @@
     margin-top: 30px;
 }
 
-.author-img {
-    width: 40px;
-    height: 40px;
+.news-author img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 15px;
 }
@@ -198,8 +198,8 @@
 }
 
 .comment-author img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
     border-radius: 50%;
 }
@@ -247,4 +247,46 @@
 
 .comment-content p{
     padding: 0px 42px 20px 30px
+}
+
+.edit-del-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;   
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.edit-button {
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.edit-button:hover {
+    cursor: pointer;
+    background-color: green;
+    transition: 0.4s;
+}
+
+.delete-button {
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background-color: green;
+    transition: 0.4s;
 }

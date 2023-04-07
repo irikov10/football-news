@@ -3,11 +3,11 @@ import { AiOutlineLike } from "react-icons/ai"
 import { FaRegComment } from 'react-icons/fa'
 
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { articlesServiceFactory } from '../../services/newsService'
 import { useService } from '../../hooks/useService'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../contexts/AuthContext'
+import Profile from '../Profile/Profile'
 
 export default function DailyNews() {
     const [articles, setArticles] = useState([]);
@@ -25,12 +25,13 @@ export default function DailyNews() {
             navigate(`/details/articles/${article._id}`)
         }
 
+        const name = article.name;
+
         return (
             <article className={styles["news"]} key={article._id} onClick={showArticleDetails}>
                 <div className={styles["article-content-footer"]}>
                     <div className={styles["author"]}>
-                        <img src={article.image} alt=""
-                            className={styles["article-author"]} />
+                        <Profile name={name} />
 
                         <div className={styles["author-info"]}>
                             <h4 className={styles["author-name"]}>{article.name}</h4>

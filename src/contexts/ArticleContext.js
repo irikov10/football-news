@@ -21,7 +21,7 @@ export const ArticlesProvider = ({ children }) => {
             console.log(name, subName, content, articleImage)
 
             if (!name || !subName || !content || !articleImage) {
-                throw new Error('All field are required!')
+                throw new Error("All fields are required!")
             }
 
             const newArticle = await articlesService.create(article);
@@ -55,6 +55,10 @@ export const ArticlesProvider = ({ children }) => {
         }
     };
 
+    const getArticle = (articleId) => {
+        return articles.find((article) => article._id === articleId);
+    }
+
     const deleteArticle = (articleId) => {
         setArticles((state) => state.filter((article) => article._id !== articleId))
     }
@@ -63,7 +67,8 @@ export const ArticlesProvider = ({ children }) => {
         articles,
         onCreateArticleSubmit,
         onEditArticleSubmit,
-        deleteArticle
+        deleteArticle,
+        getArticle
     }
 
     return (
