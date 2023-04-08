@@ -2,10 +2,8 @@ import { useState } from 'react'
 
 export const useForm = (initialValues, onSubmitHandler) => {
 
-    //state for the values
     const [values, setValues] = useState(initialValues);
 
-    //change the value 
     const changeHandler = (e) => {
         if (e.target) {
             setValues((state) => ({ ...state, [e.target.name]: e.target.value }));

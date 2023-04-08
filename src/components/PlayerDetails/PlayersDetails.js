@@ -6,18 +6,15 @@ import * as playersService from '../../services/playersService'
 
 export default function PlayersDetails() {
     const [player, setPlayer] = useState([]);
-    console.log(player)
     const { playerId } = useParams();
 
     useEffect(() => {
-        playersService.getPlayerId(playerId)
-        .then(setPlayer)
-    }, [playerId])  
-
-    console.log(player)
+        playersService.getPlayer(playerId)
+            .then(setPlayer)
+    }, [playerId])
 
     return (
-        <main style={{backgroundImage: `url(${background})`}}>
+        <main style={{ backgroundImage: `url(${background})` }}>
             <div className={styles["player-details-image"]}>
                 <img src={player.detailsImage} alt="" />
             </div>
@@ -31,6 +28,6 @@ export default function PlayersDetails() {
                     {player.description}
                 </p>
             </div>
-        </main> 
+        </main>
     )
 }

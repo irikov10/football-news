@@ -1,6 +1,4 @@
 import styles from './DailyNews.module.css'
-import { AiOutlineLike } from "react-icons/ai"
-import { FaRegComment } from 'react-icons/fa'
 
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -49,11 +47,6 @@ export default function DailyNews() {
                             <img src={article.articleImage} />
                         </div>
                     </div>
-                </div>
-
-                <div className={styles["interactions"]}>
-                    <p className={styles["like"]}><AiOutlineLike className={styles["interactions-icon"]} />Like</p>
-                    <p className={styles["comment"]}><FaRegComment className={styles["interactions-icon"]} />Comment</p>
                 </div>
             </article>
         )

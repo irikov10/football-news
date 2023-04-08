@@ -1,8 +1,10 @@
 import styles from './CreateArticle.module.css'
 import { useArticlesContext } from '../../contexts/ArticleContext'
 import { useForm } from '../../hooks/useForm'
+import { v4 as uuid } from 'uuid';
 
 export const CreateArticle = () => {
+    const _id = uuid();
 
     const { onCreateArticleSubmit } = useArticlesContext();
 
@@ -12,6 +14,8 @@ export const CreateArticle = () => {
             subName: '',
             content: '',
             articleImage: '',
+            _ownerId: JSON.parse(localStorage.getItem('auth'))._id,
+            _id
         }, onCreateArticleSubmit
     )
     return (

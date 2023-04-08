@@ -99,37 +99,6 @@ html {
     transition: 0.4s;
 }
 
-.interactions {
-    display: flex;
-    /* background-color: white; */
-    justify-content: space-around;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding-bottom: 10px;
-    border-top: 2px solid black;
-}
-
-.interactions-icon{
-    font-size: 30px;
-    padding-right: 10px;
-    margin-top: 10px;
-}
-
-.interactions p {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.like:hover {
-    color: blue;
-    transition: 0.3s ease;
-}
-
-.comment:hover {
-    color: green;
-    transition: 0.4s ease;
-}
-
 .add-article {
     display: flex;
     justify-content: center;

@@ -20,7 +20,11 @@ export default function Footer() {
 
                 <div className={styles["follow"]}>
                     <p>Follow on</p>
-                    <AiFillGithub className={styles["icon"]} />
+                    <Link to="https://github.com/irikov10"
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <AiFillGithub className={styles["icon"]} />
+                    </Link>
                 </div>
             </nav>
         </footer>

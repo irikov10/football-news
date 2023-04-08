@@ -1,10 +1,6 @@
 import styles from './ArticleDetails.module.css'
 
-import fabrizio from '../../assets/news-authors-images/3ifAqala_400x400.jpg';
-
-import { AiOutlineLike } from 'react-icons/ai'
 import { IoMdArrowRoundBack } from 'react-icons/io'
-import { FaRegComment } from 'react-icons/fa'
 
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { articlesServiceFactory } from '../../services/newsService'
@@ -20,7 +16,6 @@ export default function ArticleDetails() {
     const [article, setArticle] = useState([]);
     const [comments, setComments] = useState([]);
     const { articleId } = useParams();
-    console.log(articleId)
     const { deleteArticle } = useArticlesContext();
     const navigate = useNavigate();
 
@@ -28,9 +23,9 @@ export default function ArticleDetails() {
 
     useEffect(() => {
         Promise.all([articlesFactory.getArticle(articleId), commentService.getAllComments(articleId)])
-            .then(([articles, comments]) => {
+            .then(([articles, allComments]) => {
                 setArticle(articles);
-                setComments(comments);
+                setComments(allComments);
             })
     }, [articleId])
 
@@ -78,7 +73,7 @@ export default function ArticleDetails() {
         }
     }
 
-    const isOwner = localStorage.getItem('auth')._id === article._ownerId;
+    const isOwner = JSON.parse(localStorage.getItem('auth'))._id === article._ownerId;
     const name = article.name;
 
     return (
@@ -94,7 +89,7 @@ export default function ArticleDetails() {
                             <Link to={`/edit/${articleId}`} className={styles['edit']}>Edit</Link>
                             <button className={styles["delete"]} onClick={onDelete}>Delete</button>
                         </div>
-                    ) : ""}
+                    ) : null}
 
                     <div className={styles["news-content"]}>
                         <div className={styles["news-author"]}>
@@ -117,26 +112,22 @@ export default function ArticleDetails() {
                             <div className={styles["article-details-image"]}>
                                 <img src={article.articleImage} alt="" />
                             </div>
-
-                            <div className={styles["article-details-interactions"]}>
-                                <p className={styles["like"]}><AiOutlineLike className={styles["icon"]} /></p>
-                                <p className={styles["comment"]}><FaRegComment className={styles["icon"]} /></p>
-                            </div>
                         </div>
                     </div>
-
+                    <h2 className={styles["comment-creation"]}>Create Comment</h2>
                     <CreateComment onCommentSubmit={onCommentSubmit} />
                     {comments.map((c) => {
-                        const commentName = c.name;
+                        const name = c.name;
+                        const isOwner = JSON.parse(localStorage.getItem('auth'))._id === c._ownerId;
 
                         return (
                             <div key={c._id} className={styles['comment-section']}>
                                 <div className={styles['comment-author']}>
-                                    <Profile name={commentName} />
+                                    <Profile name={name} />
 
                                     <div className={styles['author-information']}>
                                         <h4 className={styles['author-news-name']}>
-                                            {c.name}
+                                            {name}
                                         </h4>
                                     </div>
                                 </div>

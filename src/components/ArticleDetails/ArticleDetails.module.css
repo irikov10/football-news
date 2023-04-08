@@ -75,8 +75,14 @@
 
 .arrow-left-icon {
     padding-right: 30px;
+    width: 60px;
     font-size: 50px;
     color: black;
+    transition: ease-in-out 0.4s;
+}
+
+.arrow-left-icon:hover {
+    color: blue;
 }
 
 .edit-delete {
@@ -93,6 +99,7 @@
     border-radius: 6px;
     color: black;
     font-weight: bold;
+    transition: 400ms;
 }
 
 .delete {
@@ -103,17 +110,16 @@
     border: none;
     font-size: 15px;
     border-radius: 6px;
+    transition: 400ms;
 }
 
 .edit:hover {
     background-color: green;
-    transition: 0.4s;
 }
 
 .delete:hover {
     background-color: green;
     cursor: pointer;
-    transition: 0.4s;
 }
 
 .article-details-image {
@@ -126,41 +132,12 @@
     border-radius: 10px;
 }
 
-
-/* Interactions */
-
-.article-details-interactions {
-    display: flex;
-    background-color: white;
-    justify-content: space-around;
-    padding-bottom: 10px;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-}
-
-.article-details-interactions .icon {
-    font-size: 40px;
-    padding-right: 10px;
-    margin-top: 10px;
-}
-
-.article-details-interactions p {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.like:hover {
-    color: blue;
-    transition: 0.3s ease;
-}
-
-
-.comment:hover {
-    color: green;
-    transition: 0.4s ease;
-}
-
 /* Add Comment */
+.comment-creation {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
 .comment-box {
     padding: 10px;
     overflow: hidden;

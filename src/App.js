@@ -15,6 +15,7 @@ import { Logout } from './components/Logout/Logout'
 import { AuthProvider } from './contexts/AuthContext';
 import { ArticlesProvider } from './contexts/ArticleContext';
 import { RouteGuard } from './components/common/RouteGard';
+import { EditComment } from './components/EditComments/EditComments';
 
 function App() {
 	return (
@@ -40,6 +41,7 @@ function App() {
 							</RouteGuard>} />
 						<Route path="/create" element={<CreateArticle />} />
 						<Route path="/edit/:articleId" element={<EditArticle />} />
+						<Route path="/editComment/:articleId/:commentId" element={<EditComment />} />
 					</Routes>
 					<Footer />
 				</ArticlesProvider>

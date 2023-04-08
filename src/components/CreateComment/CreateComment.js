@@ -7,8 +7,8 @@ export const CreateComment = ({ onCommentSubmit }) => {
 
     const { values, changeHandler, onSubmit } = useForm(
         {
-            name: '',
-            comment: '',
+            name: "",
+            comment: "",
             _ownerId: JSON.parse(localStorage.getItem('auth'))._id,
             _id,
         },
@@ -18,7 +18,7 @@ export const CreateComment = ({ onCommentSubmit }) => {
     return (
         <div className={styles["comment-box"]}>
 
-            <form id="create-comment" method="POST" onSubmit={onSubmit}>
+            <form id={styles["create-comment"]} method="POST" onSubmit={onSubmit}>
                 <input
                     type="text"
                     name="name"
@@ -30,12 +30,12 @@ export const CreateComment = ({ onCommentSubmit }) => {
                 <textarea
                     name="comment"
                     id={styles['comment']}
-                    cols="30"
-                    rows="10"
+                    cols="5"
+                    rows="100"
                     placeholder="Share your thoughts...."
                     value={values.comment}
                     onChange={changeHandler}
-                ></textarea>
+                />
                 <button type="submit" className={styles['post-comment']}>
                     Comment
                 </button>
