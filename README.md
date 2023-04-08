@@ -1,5 +1,28 @@
 # Getting Started with Create React App
 
+# Home Page
+![image](https://user-images.githubusercontent.com/106108675/230739242-8e33fde6-0ff3-4b4f-9cb2-2a9ba0dde77a.png)
+
+# Daily News
+![image](https://user-images.githubusercontent.com/106108675/230739253-dfeb8386-edeb-481e-840a-bf34dc95ea7c.png)
+
+# Transfers
+![image](https://user-images.githubusercontent.com/106108675/230739265-cecb6060-61f8-4fa5-b027-b967a2467c70.png)
+
+# Login Page
+![image](https://user-images.githubusercontent.com/106108675/230739280-15d29762-8e34-4ca5-aad9-6e8f95b787e9.png)
+
+# Register Page
+![image](https://user-images.githubusercontent.com/106108675/230739290-4d5240fb-96f1-4622-ae6d-562ded2de1df.png)
+
+# Article Detais
+![image](https://user-images.githubusercontent.com/106108675/230739176-35bf04b2-7421-40ae-9775-58d6a6b1befc.png)
+This page shows the full Article with the comment section
+
+# Player Details 
+![image](https://user-images.githubusercontent.com/106108675/230739205-76661af3-9b34-4a6a-9827-9eac52f87137.png)
+This page shows more about the player
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
